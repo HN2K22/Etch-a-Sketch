@@ -1,7 +1,7 @@
 const container = document.querySelector(".container")
 const hover = document.querySelector(".gridcell")
 const btnInput = document.querySelector(".input")
-
+const selColor = document.querySelector(".selColor")
 btnInput.addEventListener("click",function (){
     const value = prompt("Enter the number for grid size (max 100)")
     if(value>=100 || value<1 ){
@@ -22,8 +22,10 @@ btnInput.addEventListener("click",function (){
         for (let i = 1; i <= value; i++) {
             const gridCell = document.createElement("div");
             gridCell.addEventListener("mouseover", function (){
-                gridCell.style.backgroundColor ="grey"
-            }) 
+                const color = selColor.value || "red"
+                gridCell.style.backgroundColor =color
+                }
+            ) 
             gridCell.setAttribute("class", "gridCell"); 
             gridContainer.appendChild(gridCell)
         }
